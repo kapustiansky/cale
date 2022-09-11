@@ -28,10 +28,3 @@ export default {
 		:min="min"
 	/>
 </template>
-
-<style scoped lang="scss">
-.datapiker {
-	width: 100%;
-	max-width: 221px;
-}
-</style>

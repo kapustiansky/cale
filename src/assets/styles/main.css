@@ -34,6 +34,28 @@
 	font-style: normal;
 }
 
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #211d2a #100e17;
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #100e17;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #211d2a;
+	border: 3px solid #211d2a;
+}
+
+body {
+	background: #100e17;
+}
+
 html {
 	font-size: 16px;
 	font-family: 'Montserrat';

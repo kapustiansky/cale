@@ -5,15 +5,7 @@ const calendar = {
 	state: {
 		today: moment(),
 		dateContext: moment(),
-		days: [
-			'Понедельник',
-			'Вторник',
-			'Среда',
-			'Четверг',
-			'Пятница',
-			'Суббота',
-			'Воскресенье',
-		],
+		days: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
 	},
 	mutations: {
 		changeContext(state, value) {

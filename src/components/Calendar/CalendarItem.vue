@@ -29,8 +29,8 @@ export default {
 					class="note"
 					:class="{
 						green: note.priority == 1,
-						yellow: note.priority == 2,
-						red: note.priority == 3,
+						pink: note.priority == 2,
+						orange: note.priority == 3,
 					}"
 				>
 					<span>{{ note.text }}</span>
@@ -47,6 +47,17 @@ export default {
 	min-height: 100%;
 	background: inherit;
 	border-radius: 5px;
+
+	& > span {
+		background: #ff6300;
+		background: radial-gradient(
+			ellipse farthest-corner at center center,
+			#ff6300 35%,
+			#000000 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
 
 .cell-mod {
@@ -60,7 +71,7 @@ export default {
 }
 
 .cell {
-	border: 1px solid #c1c1c1;
+	border: 1px solid #000000;
 	border-radius: 5px;
 	font-family: 'Montserrat';
 	font-style: normal;
@@ -68,22 +79,25 @@ export default {
 	font-size: 1.5625rem;
 	line-height: 30px;
 	text-align: right;
-	color: #020101;
-	padding: 6px;
-	background: #ffffff;
+	padding: 6px 12px 6px 0;
+	background: #17141d;
 	position: relative;
-	height: 120px;
+	height: 150px;
+
+	@media screen and (max-width: 1024px) {
+		height: 120px;
+	}
 
 	@media screen and (max-width: 660px) {
 		font-size: 1rem;
 		height: 40px;
-		padding: 3px;
+		padding: 3px 6px 3px 0;
 		line-height: 15px;
 	}
 
 	&:hover {
 		.cell-wrapper {
-			padding: 6px;
+			padding: 6px 12px 6px 0;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -91,10 +105,10 @@ export default {
 			overflow: visible;
 			height: fit-content;
 			z-index: 2;
-			box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+			box-shadow: 0px 2px 10px 2px rgb(19 226 200 / 99%);
 
 			@media screen and (max-width: 660px) {
-				padding: 3px;
+				padding: 3px 6px 3px 0;
 			}
 		}
 	}
@@ -102,20 +116,43 @@ export default {
 	&:nth-child(6),
 	&:nth-child(7n + 6),
 	&:nth-child(7n) {
-		color: #1900b2;
+		.cell-wrapper > span {
+			background: #fc3af6;
+			background: radial-gradient(
+				ellipse farthest-corner at center center,
+				#fc3af6 10%,
+				#1919ff 100%
+			);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
 	}
 }
 
 .disabled {
-	background: #ebebeb;
+	background: #211d2a;
 
 	span {
-		opacity: 0.5;
+		background: #100e17 !important;
+		background: radial-gradient(
+			ellipse farthest-corner at center center,
+			#100e17 46%,
+			#100e17 100%
+		) !important;
+		-webkit-background-clip: text !important;
+		-webkit-text-fill-color: transparent !important;
 	}
 }
 
-.today > div > span {
-	color: #00a349;
+.today > .cell-wrapper > span {
+	background: #00ff3c !important;
+	background: radial-gradient(
+		ellipse farthest-corner at center center,
+		#94ff00 -20%,
+		#fffe00 100%
+	) !important;
+	-webkit-background-clip: text !important;
+	-webkit-text-fill-color: transparent !important;
 }
 
 .notes-container {
@@ -131,9 +168,9 @@ export default {
 	position: relative;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 0.6875rem;
+	font-size: 0.65rem;
 	line-height: 13px;
-	border-radius: 3px;
+	border-radius: 0 3px 3px 0;
 	width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -143,7 +180,7 @@ export default {
 	@media screen and (max-width: 660px) {
 		font-size: 0.6rem;
 		line-height: 8px;
-		padding: 2px 3px;
+		padding: 0px 3px;
 	}
 
 	&:hover {
@@ -153,22 +190,35 @@ export default {
 	}
 
 	&:not(:last-child) {
-		margin-bottom: 3px;
+		margin-bottom: 6px;
+
+		@media screen and (max-width: 660px) {
+			margin-bottom: 3px;
+		}
 	}
 
 	&.green {
-		background: #deefe8;
-		color: #82d2a5;
+		background: inherit;
+		border-top: 1px solid #78fe9c;
+		border-right: 1px solid #78fe9c;
+		border-bottom: 1px solid #78fe9c;
+		color: #78fe9c;
 	}
 
-	&.yellow {
-		background: #fbe3ce;
-		color: #e2b48c;
+	&.pink {
+		background: inherit;
+		border-top: 1px solid #ff6efa;
+		border-right: 1px solid #ff6efa;
+		border-bottom: 1px solid #ff6efa;
+		color: #ff6efa;
 	}
 
-	&.red {
-		background: #f9e7e7;
-		color: #d58287;
+	&.orange {
+		background: inherit;
+		border-top: 1px solid #ff914c;
+		border-right: 1px solid #ff914c;
+		border-bottom: 1px solid #ff914c;
+		color: #ff914c;
 	}
 
 	span {

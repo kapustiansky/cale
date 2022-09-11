@@ -30,8 +30,8 @@ export default {
 </template>
 
 <style scoped lang="scss">
-.priorities {
-	width: 100%;
-	max-width: 221px;
-}
+// .priorities {
+// 	width: 100%;
+// 	max-width: 221px;
+// }
 </style>

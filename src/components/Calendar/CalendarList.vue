@@ -115,7 +115,7 @@ export default {
 <style scoped lang="scss">
 .grid-container {
 	display: grid;
-	grid-template-columns: repeat(7, minmax(86px, 172px));
+	grid-template-columns: repeat(7, minmax(86px, 262px));
 	gap: 3px;
 
 	@media screen and (max-width: 660px) {
@@ -128,8 +128,17 @@ export default {
 	font-weight: 700;
 	font-size: 1.25rem;
 	line-height: 24px;
-	color: #000000;
+	// color: #000000;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+	background: #121fcf;
+	background: radial-gradient(
+		ellipse farthest-corner at center center,
+		#cf3c12 0%,
+		#4dcf90 50%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 </style>
