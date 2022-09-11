@@ -103,81 +103,130 @@ export default {
 
 <style scoped lang="scss">
 .add-note-container {
-	flex: 0 1 490px;
-
-	@media screen and (max-width: 1024px) {
-		padding-top: 10px;
-		flex: auto;
-		max-width: 490px;
-		margin-left: auto;
-	}
+	padding-top: 10px;
 
 	form {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 3%;
+
+		@media screen and (max-width: 660px) {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 5%;
+		}
 	}
 }
 
 .title {
 	font-style: normal;
 	font-weight: 700;
-	font-size: 32px;
+	font-size: 2rem;
 	line-height: 39px;
-	color: #000000;
-	padding-bottom: 30px;
-	text-align: end;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 40px;
+	background: #94ff00;
+	background: radial-gradient(
+		ellipse farthest-corner at center center,
+		#94ff00 0%,
+		#fffe00 28%,
+		#94ff00 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	@media screen and (max-width: 660px) {
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
 }
 
 .input-container {
 	display: flex;
 	flex-direction: column-reverse;
-	align-items: flex-end;
 	width: 100%;
 
-	&:not(:last-of-type) {
-		padding-bottom: 13px;
-	}
-
 	input {
-		background: #f3f3f3;
-		border: 1px solid #d7d7d7;
+		background: #fc3af6;
+		background: radial-gradient(
+			ellipse farthest-corner at center center,
+			#fc3af6 10%,
+			#1919ff 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		border: 1px solid #000000;
 		border-radius: 8px;
 		padding: 9px 16px;
 		font-style: normal;
 		font-weight: 400;
-		font-size: 22px;
+		font-size: 1.375rem;
 		line-height: 27px;
 		width: 100%;
+		color: #211d2a;
+		box-shadow: inset 2px 2px 5px rgb(0, 0, 0, 0.5),
+			inset -2px -2px 5px rgb(80, 80, 80, 0.13),
+			2px 2px 5px rgb(0, 0, 0, 0.5), -2px -2px 5px rgb(80, 80, 80, 0.13);
+		transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+		&:hover {
+			box-shadow: 3px 3px 5px rgb(0, 0, 0), 0px 0px 16px rgb(19, 226, 198);
+		}
+
+		&:focus-visible {
+			outline: none;
+			box-shadow: 2px 2px 16px rgb(19, 226, 198, 0.3),
+				-2px -2px 16px rgb(19, 226, 198, 0.3);
+		}
 
 		&::placeholder {
 			font-style: normal;
 			font-weight: 400;
-			font-size: 22px;
+			font-size: 1.375rem;
 			line-height: 27px;
-			color: rgba(0, 0, 0, 0.3);
+			color: #211d2a;
 		}
 	}
 
 	select {
-		background: #f3f3f3;
-		border: 1px solid #d7d7d7;
+		background: #fc3af6;
+		background: radial-gradient(
+			ellipse farthest-corner at center center,
+			#fc3af6 10%,
+			#1919ff 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		border: 1px solid #000000;
 		border-radius: 8px;
 		padding: 9px 16px;
 		font-style: normal;
 		font-weight: 400;
-		font-size: 22px;
+		font-size: 1.375rem;
 		line-height: 27px;
 		appearance: none;
-		background: url(@/assets/images/arrow.svg) no-repeat right;
-		background-position-x: calc(100% - 16px);
+		width: 100%;
+		box-shadow: inset 2px 2px 5px rgb(0, 0, 0, 0.5),
+			inset -2px -2px 5px rgb(80, 80, 80, 0.13),
+			2px 2px 5px rgb(0, 0, 0, 0.5), -2px -2px 5px rgb(80, 80, 80, 0.13);
+		transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+		&:hover {
+			box-shadow: 3px 3px 5px rgb(0, 0, 0), 0px 0px 16px rgb(19, 226, 198);
+		}
+
+		&:focus-visible {
+			outline: none;
+			box-shadow: 2px 2px 16px rgb(19, 226, 198, 0.3),
+				-2px -2px 16px rgb(19, 226, 198, 0.3);
+		}
 	}
 
 	input[type='date'] {
 		padding: 8px 16px;
 
 		&:invalid {
-			color: rgba(0, 0, 0, 0.3);
+			color: #211d2a;
 		}
 	}
 
@@ -189,14 +238,26 @@ export default {
 .label {
 	font-style: normal;
 	font-weight: 500;
-	font-size: 22px;
+	font-size: 1.375rem;
 	line-height: 27px;
-	color: #000000;
-	padding-bottom: 3px;
-	text-align: end;
+	padding-bottom: 8px;
+	opacity: 0.35;
+	background: #fc3af6;
+	background: radial-gradient(
+		ellipse farthest-corner at center center,
+		#fc3af6 10%,
+		#1919ff 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	@media screen and (max-width: 660px) {
+		padding-bottom: 4px;
+	}
 }
 
 button {
-	margin-top: 46px;
+	height: max-content;
+	margin-top: auto;
 }
 </style>

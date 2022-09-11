@@ -36,18 +36,19 @@ export default {
 .calendar-btn {
 	width: 44px;
 	height: 44px;
+	border: 1px solid #000000;
 	border-radius: 50%;
-	background: #eeeeee;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-		inset 0px -1px 4px rgba(0, 0, 0, 0.25);
+	background: #211d2a;
+	box-shadow: inset 2px 2px 5px rgb(0, 0, 0, 0.5),
+		inset -2px -2px 5px rgb(80, 80, 80, 0.13), 2px 2px 5px rgb(0, 0, 0, 0.5),
+		-2px -2px 5px rgb(80, 80, 80, 0.13);
 	cursor: pointer;
-	transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
 	&:hover {
-		opacity: 0.7;
+		box-shadow: 3px 3px 5px rgb(0, 0, 0), 0px 0px 16px rgb(19, 226, 198);
 	}
 
 	& > div {
@@ -79,8 +80,17 @@ export default {
 	font-weight: 700;
 	font-size: 2rem;
 	line-height: 39px;
-	color: #000000;
+	// color: #000000;
 	margin: 0 20px;
 	text-transform: capitalize;
+	background: #94ff00;
+	background: radial-gradient(
+		ellipse farthest-corner at center center,
+		#94ff00 0%,
+		#fffe00 0%,
+		#94ff00 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 </style>

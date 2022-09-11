@@ -17,15 +17,11 @@ export default {
 
 <style scoped lang="scss">
 .container {
-	padding: 35px 26px 35px 43px;
+	padding: 35px 26px;
+	max-width: 1920px;
+	margin: 0 auto;
 	display: flex;
-	justify-content: space-between;
-	gap: 20px;
-	flex-flow: row wrap;
-
-	@media screen and (max-width: 1024px) {
-		padding: 35px 26px;
-	}
+	flex-direction: column;
 
 	@media screen and (max-width: 660px) {
 		padding: 35px 16px;
