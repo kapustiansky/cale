@@ -28,10 +28,3 @@ export default {
 		</option>
 	</select>
 </template>
-
-<style scoped lang="scss">
-// .priorities {
-// 	width: 100%;
-// 	max-width: 221px;
-// }
-</style>

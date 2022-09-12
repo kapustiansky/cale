@@ -7,6 +7,11 @@ import { mapState, mapActions } from 'vuex';
 export default {
 	name: 'CalendarList',
 	components: { CalendarItem, CalendarControls },
+	beforeMount() {
+		const notes = localStorage.getItem('notes');
+		if (notes && this.notes.length === 0)
+			this.storageNotes(JSON.parse(notes));
+	},
 	computed: {
 		...mapState('calendar', ['today', 'dateContext', 'days']),
 		...mapState('notes', ['notes']),
@@ -73,6 +78,7 @@ export default {
 	},
 	methods: {
 		...mapActions('calendar', ['changeContext']),
+		...mapActions('notes', ['addNotes']),
 
 		nextMonth() {
 			this.changeContext(moment(this.dateContext).add(1, 'month'));
@@ -80,6 +86,12 @@ export default {
 
 		prevMonth() {
 			this.changeContext(moment(this.dateContext).subtract(1, 'month'));
+		},
+
+		storageNotes(notes) {
+			notes.map((i) => {
+				this.addNotes(i);
+			});
 		},
 	},
 };
@@ -128,10 +140,8 @@ export default {
 	font-weight: 700;
 	font-size: 1.25rem;
 	line-height: 24px;
-	// color: #000000;
 	overflow: hidden;
 	text-overflow: ellipsis;
-
 	background: #121fcf;
 	background: radial-gradient(
 		ellipse farthest-corner at center center,
@@ -140,5 +150,10 @@ export default {
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	&::selection {
+		background: #ff3eef;
+		-webkit-text-fill-color: white;
+	}
 }
 </style>

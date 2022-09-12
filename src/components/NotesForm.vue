@@ -47,10 +47,22 @@ export default {
 					priority: this.priority,
 				});
 
+				this.setToStorage({
+					text: this.text,
+					date: this.date,
+					priority: this.priority,
+				});
+
 				this.text = '';
 				this.date = '';
 				this.priority = '1';
 			}
+		},
+
+		setToStorage(note) {
+			const storage = JSON.parse(localStorage.getItem('notes')) ?? [];
+			storage.push(note);
+			localStorage.setItem('notes', JSON.stringify(storage));
 		},
 	},
 };
@@ -135,6 +147,11 @@ export default {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 
+	&::selection {
+		background: #ff3eef;
+		-webkit-text-fill-color: white;
+	}
+
 	@media screen and (max-width: 660px) {
 		padding-top: 10px;
 		padding-bottom: 20px;
@@ -189,6 +206,7 @@ export default {
 	}
 
 	select {
+		color-scheme: normal;
 		background: #fc3af6;
 		background: radial-gradient(
 			ellipse farthest-corner at center center,
@@ -241,15 +259,19 @@ export default {
 	font-size: 1.375rem;
 	line-height: 27px;
 	padding-bottom: 8px;
-	opacity: 0.35;
-	background: #fc3af6;
+	background: #fc3af550;
 	background: radial-gradient(
 		ellipse farthest-corner at center center,
-		#fc3af6 10%,
-		#1919ff 100%
+		#fc3af550 10%,
+		#1919ff50 100%
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	&::selection {
+		background: #ff3eef;
+		-webkit-text-fill-color: white;
+	}
 
 	@media screen and (max-width: 660px) {
 		padding-bottom: 4px;

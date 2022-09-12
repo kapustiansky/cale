@@ -57,6 +57,11 @@ export default {
 		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+
+		&::selection {
+			background: #ff3eef;
+			-webkit-text-fill-color: white;
+		}
 	}
 }
 
@@ -223,6 +228,11 @@ export default {
 
 	span {
 		white-space: nowrap;
+
+		&::selection {
+			background: #ff3eef;
+			color: white;
+		}
 	}
 }
 </style>
