@@ -80,7 +80,6 @@ export default {
 	font-weight: 700;
 	font-size: 2rem;
 	line-height: 39px;
-	// color: #000000;
 	margin: 0 20px;
 	text-transform: capitalize;
 	background: #94ff00;
@@ -92,5 +91,10 @@ export default {
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	&::selection {
+		background: #ff3eef;
+		-webkit-text-fill-color: white;
+	}
 }
 </style>
